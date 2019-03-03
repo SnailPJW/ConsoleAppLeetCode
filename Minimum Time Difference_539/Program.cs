@@ -30,13 +30,14 @@ namespace Minimum_Time_Difference_539
             } while (!bFinished);
 
             Console.WriteLine("\n----------- 計算結果 ------------");
-            foreach(string element in timePoints)
-            {
-                Console.WriteLine(element);
-            }
+            //foreach(string element in timePoints)
+            //{
+            //    Console.WriteLine(element);
+            //}
+            Console.WriteLine($"Output : {FindMinDifference(timePoints)}");
             Console.ReadLine();
         }
-        public int FindMinDifference(IList<string> timePoints)
+        public static int FindMinDifference(IList<string> timePoints)
         {
             List<string[]> arrayList = new List<string[]>();
             foreach (string point in timePoints)
@@ -77,13 +78,10 @@ namespace Minimum_Time_Difference_539
                     }
                     if (minuValue > Nums[i] - Nums[j])
                     {
+                        minuValue = Nums[i] - Nums[j];
                         if (minuValue > halfMaxValue)
                         {
                             minuValue = maxValue - minuValue;
-                        }
-                        else
-                        {
-                            minuValue = Nums[i] - Nums[j];
                         }
                     }
                 }
