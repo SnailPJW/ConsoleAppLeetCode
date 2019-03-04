@@ -76,17 +76,27 @@ namespace Minimum_Time_Difference_539
                         Nums[i] = Nums[j];
                         Nums[j] = temp;
                     }
+                }
+            }
+            int convertValue = maxValue;
+            for (int i = 0; i < count - 1; i++)
+            {
+                for (int j = i + 1; j < count; j++)
+                {
+                    if ( halfMaxValue < Nums[i] - Nums[j] )
+                    {
+                        convertValue = maxValue - (Nums[i] - Nums[j]);
+                    }
+                    if(convertValue < minuValue)
+                    {
+                        minuValue = convertValue;
+                    }
                     if (minuValue > Nums[i] - Nums[j])
                     {
                         minuValue = Nums[i] - Nums[j];
-                        if (minuValue > halfMaxValue)
-                        {
-                            minuValue = maxValue - minuValue;
-                        }
                     }
                 }
             }
-
             return minuValue;
             // 00:00   12:30    >>>     12*60 + 30 = 750
             // 12:30   23:59    >>>     23*60 + 59 = 1439
